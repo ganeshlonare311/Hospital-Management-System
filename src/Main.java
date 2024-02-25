@@ -1,11 +1,6 @@
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException{
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("Drivers loaded successfully...");
-        }catch (ClassNotFoundException e){
-            System.out.println(e.getMessage());
-        }
+    public static void main(String[] args){
+        System.out.println("Creating a Project of Hospital Management System using JAVA");
     }
 }
