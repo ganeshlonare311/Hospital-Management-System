@@ -58,7 +58,24 @@ public class Patient {
                 System.out.println("+------------+---------------+-----------+-------------+");
             }
         }catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    public boolean getPatientById(int id){
+        String query="SELECT * FROM patients WHERE id = ?";
+        try{
+            PreparedStatement preparedStatement= connection.prepareStatement(query);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            if (resultSet.next()){
+                return true;
+            }else{
+                return false;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }
