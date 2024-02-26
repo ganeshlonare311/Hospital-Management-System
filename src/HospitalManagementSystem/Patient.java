@@ -46,6 +46,7 @@ public class Patient {
         try{
             PreparedStatement preparedStatement=connection.prepareStatement(query);
             ResultSet resultSet=preparedStatement.executeQuery();
+            System.out.println("Patients: ");
             System.out.println("+------------+---------------+-----------+-------------+");
             System.out.println("| Patient ID |      Name     |    Age    |   Gender    |");
             System.out.println("+------------+---------------+-----------+-------------+");
@@ -54,7 +55,7 @@ public class Patient {
                 String name=resultSet.getString("name");
                 int age=resultSet.getInt("age");
                 String gender=resultSet.getString("gender");
-                System.out.printf("|%-12s|%-15s|%-11s|%-13s|");
+                System.out.printf("|%-12s|%-15s|%-11s|%-13s|\n",id,name,age,gender);
                 System.out.println("+------------+---------------+-----------+-------------+");
             }
         }catch (SQLException e){
